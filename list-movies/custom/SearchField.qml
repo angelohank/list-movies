@@ -5,12 +5,11 @@ Row {
 
     spacing: 10
 
-    Rectangle {
+    TextFieldCustom {
         id: textField
+
         height: 30
         width: 240
-        radius: 8
-        color: "#DCDCDC"
     }
 
     ButtonCustom {

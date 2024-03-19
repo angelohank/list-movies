@@ -4,5 +4,6 @@
         <file>screens/MainScreen.qml</file>
         <file>custom/SearchField.qml</file>
         <file>custom/ButtonCustom.qml</file>
+        <file>custom/TextFieldCustom.qml</file>
     </qresource>
 </RCC>

@@ -7,7 +7,7 @@ Window {
     width: 400
     height: 600
     visible: true
-    title: qsTr("List Movies")
+    title: qsTr( "List Movies" )
 
     Column {
         anchors {
