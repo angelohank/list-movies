@@ -1,0 +1,9 @@
+-rootPath
+C:/DEVELOP/TESTE-TECNICO-STONE/list-movies/list-movies
+-cmake-output
+-output-file
+C:/DEVELOP/TESTE-TECNICO-STONE/list-movies/build-list-movies-Desktop_Qt_6_4_0_MinGW_64_bit-Debug/.qt_plugins/Qt6_QmlPlugins_Imports_list-movies.cmake
+-importPath
+C:/DEVELOP/TESTE-TECNICO-STONE/list-movies/build-list-movies-Desktop_Qt_6_4_0_MinGW_64_bit-Debug
+-importPath
+C:/Qt/6.4.0/mingw_64/./qml
