@@ -9,6 +9,7 @@
 	[
 		"C:/DEVELOP/TESTE-TECNICO-STONE/list-movies/list-movies/main.qml",
 		"C:/DEVELOP/TESTE-TECNICO-STONE/list-movies/list-movies/screens/MainScreen.qml",
+		"C:/DEVELOP/TESTE-TECNICO-STONE/list-movies/list-movies/custom/TextFieldCustom.qml",
 		"C:/DEVELOP/TESTE-TECNICO-STONE/list-movies/list-movies/custom/ButtonCustom.qml",
 		"C:/DEVELOP/TESTE-TECNICO-STONE/list-movies/list-movies/custom/SearchField.qml"
 	],
