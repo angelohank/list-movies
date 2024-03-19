@@ -1,5 +1,8 @@
 <RCC>
     <qresource prefix="/">
         <file>main.qml</file>
+        <file>screens/MainScreen.qml</file>
+        <file>custom/SearchField.qml</file>
+        <file>custom/ButtonCustom.qml</file>
     </qresource>
 </RCC>
