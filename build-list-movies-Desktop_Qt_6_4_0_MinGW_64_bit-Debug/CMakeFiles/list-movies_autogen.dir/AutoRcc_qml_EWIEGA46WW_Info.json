@@ -5,7 +5,13 @@
 	"CMAKE_CURRENT_SOURCE_DIR" : "C:/DEVELOP/TESTE-TECNICO-STONE/list-movies/list-movies",
 	"CMAKE_SOURCE_DIR" : "C:/DEVELOP/TESTE-TECNICO-STONE/list-movies/list-movies",
 	"INCLUDE_DIR" : "C:/DEVELOP/TESTE-TECNICO-STONE/list-movies/build-list-movies-Desktop_Qt_6_4_0_MinGW_64_bit-Debug/list-movies_autogen/include",
-	"INPUTS" : [ "C:/DEVELOP/TESTE-TECNICO-STONE/list-movies/list-movies/main.qml" ],
+	"INPUTS" : 
+	[
+		"C:/DEVELOP/TESTE-TECNICO-STONE/list-movies/list-movies/main.qml",
+		"C:/DEVELOP/TESTE-TECNICO-STONE/list-movies/list-movies/screens/MainScreen.qml",
+		"C:/DEVELOP/TESTE-TECNICO-STONE/list-movies/list-movies/custom/ButtonCustom.qml",
+		"C:/DEVELOP/TESTE-TECNICO-STONE/list-movies/list-movies/custom/SearchField.qml"
+	],
 	"LOCK_FILE" : "C:/DEVELOP/TESTE-TECNICO-STONE/list-movies/build-list-movies-Desktop_Qt_6_4_0_MinGW_64_bit-Debug/CMakeFiles/list-movies_autogen.dir/AutoRcc_qml_EWIEGA46WW_Lock.lock",
 	"MULTI_CONFIG" : false,
 	"OPTIONS" : [ "-name", "qml" ],
