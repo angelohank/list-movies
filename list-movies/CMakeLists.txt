@@ -20,6 +20,10 @@ set(PROJECT_SOURCES
         control/mainscreencontrol.h
         network/networkrequester.cpp
         network/networkrequester.h
+        model/moviemodel.cpp
+        model/moviemodel.h
+        controller/moviecontroller.cpp
+        controller/moviecontroller.h
         qml.qrc
 )
 

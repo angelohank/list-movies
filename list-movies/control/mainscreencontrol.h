@@ -16,6 +16,8 @@ public slots:
     QString sessionDescription() const;
     void setSessionDescription( const QString& sessionDescription );
 
+    void moviesConverter( const QByteArray& data) const;
+
 signals:
     void sessionDescriptionChanged();
 
