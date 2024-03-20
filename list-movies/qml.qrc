@@ -5,5 +5,6 @@
         <file>custom/SearchField.qml</file>
         <file>custom/ButtonCustom.qml</file>
         <file>custom/TextFieldCustom.qml</file>
+        <file>resources/images/SEARCH-ICON.png</file>
     </qresource>
 </RCC>

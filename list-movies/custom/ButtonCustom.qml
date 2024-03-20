@@ -5,6 +5,8 @@ MouseArea {
 
     property string pressedColor: "#6959CD"
     property string unpressedColor: "#836FFF"
+    property string src: ""
+
 
     Rectangle {
         id: button
@@ -14,9 +16,12 @@ MouseArea {
         radius: 8
         color: unpressedColor
 
-        //TODO: adicionar icone
         Image {
             anchors.centerIn: parent
+            source: root.src
+            fillMode: Image.PreserveAspectFit
+            height: parent.height * 0.6
+            width: parent.width * 0.6
         }
     }
 

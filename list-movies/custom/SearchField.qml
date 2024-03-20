@@ -8,7 +8,7 @@ Row {
     TextFieldCustom {
         id: textField
 
-        height: 30
+        height: 50
         width: 240
     }
 
@@ -17,6 +17,7 @@ Row {
 
         height: textField.height
         width: textField.height
+        src: "qrc:/resources/images/SEARCH-ICON.png"
 
         onClicked: {
             //TODO: realizar filtro
