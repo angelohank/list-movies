@@ -2,6 +2,7 @@
 #define MAINSCREENCONTROL_H
 
 #include <QObject>
+#include "./network/networkrequester.h"
 
 class MainScreenControl : public QObject {
     Q_OBJECT
@@ -20,6 +21,7 @@ signals:
 
 private:
     QString _sessionDescription;
+    NetworkRequester _requester;
 };
 
 #endif // MAINSCREENCONTROL_H

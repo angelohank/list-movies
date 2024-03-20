@@ -1,8 +1,5 @@
 #include "mainscreencontrol.h"
 
-#include <QNetworkAccessManager>
-#include <QNetworkRequest>
-#include <QNetworkReply>
 #include <QDebug>
 
 MainScreenControl::MainScreenControl( QObject* parent ) :
@@ -10,25 +7,12 @@ MainScreenControl::MainScreenControl( QObject* parent ) :
     _sessionDescription( "Em alta" ){}
 
 void MainScreenControl::doStart() {
-    QNetworkAccessManager manager;
-    QUrl url("http://api.tvmaze.com/search/shows?q=girls");
-
-
-    QNetworkRequest request(url);
-    QNetworkReply* response = manager.get(request);
-
-    QByteArray data;
-
-    QObject::connect(response, &QNetworkReply::finished, [&]() {
-        data = response->readAll();
-
+    QObject::connect( &_requester, &NetworkRequester::requestFinished, this, [&]( const QByteArray& data ) {
         qDebug() << data;
     });
 
-    QNetworkReply::NetworkError erro = response->error();
-    qDebug() << response;
+    _requester.makeRequest( QUrl( "http://api.tvmaze.com/search/shows?q=girls" ) );
 
-    qDebug() << data;
 }
 
 QString MainScreenControl::sessionDescription() const {

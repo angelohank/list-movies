@@ -34,7 +34,8 @@ Item {
             anchors.horizontalCenter: parent.horizontalCenter
 
             onSearch: function( filter ) {
-                root.finish()
+                //root.finish()
+                control.doStart()
             }
         }
 
