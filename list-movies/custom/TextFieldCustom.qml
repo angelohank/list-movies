@@ -1,25 +1,22 @@
 import QtQuick 2.15
-import QtQuick.Controls 2.0
+import QtQuick.Controls 2.12
 
-Rectangle {
+TextArea {
     id: root
 
-    height: 30
-    width: 240
-    radius: 8
-    color: "#DCDCDC"
+    background: Rectangle {
+        height: parent.height
+        width: parent.width
+        radius: 8
+        color: "#DCDCDC"
+        border.color: "#DCDCDC"
+    }
 
-    property string _text: ""
+    font.pixelSize: root.height * 0.5
+    placeholderText: "Buscar"
 
-    TextArea {
-        id: textArea
-
-        anchors.fill: parent
-        background: transparent
-        font.pixelSize: 15
-
-        onTextChanged: {
-            root._text = textArea.text
-        }
+    //TODO tratar para pesquisar quando pressionar o enter
+    Keys.onReturnPressed: {
+        return
     }
 }
