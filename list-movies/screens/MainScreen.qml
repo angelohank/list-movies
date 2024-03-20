@@ -2,6 +2,7 @@ import QtQuick 2.15
 import QtQuick.Controls 2.15
 
 import "../custom"
+import  MainScreenControl 1.0
 
 Window {
     id: root
@@ -9,6 +10,14 @@ Window {
     height: 600
     visible: true
     title: qsTr( "List Movies" )
+
+    Component.onCompleted: {
+        control.doStart();
+    }
+
+    MainScreenControl {
+        id: control
+    }
 
     Column {
         id: container
