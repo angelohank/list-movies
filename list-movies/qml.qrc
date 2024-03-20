@@ -8,5 +8,6 @@
         <file>resources/images/SEARCH-ICON.png</file>
         <file>custom/Divider.qml</file>
         <file>screens/DetailScreen.qml</file>
+        <file>resources/images/RETURN-ICON.png</file>
     </qresource>
 </RCC>

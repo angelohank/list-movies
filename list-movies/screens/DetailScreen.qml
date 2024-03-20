@@ -10,9 +10,18 @@ Item {
     Column {
         id: container
 
-        anchors.fill: parent
+        anchors {
+            fill: parent
+            topMargin: 15
+            leftMargin: 10
+            rightMargin: 10
+        }
+
+        spacing: 15
 
         Rectangle {
+            id: detailContainer
+
             height: parent.height * 0.9
             width: parent.width
 
@@ -22,10 +31,15 @@ Item {
             }
         }
 
+        //TODO ajustar responsividade vertical
         ButtonCustom {
-            height: 50
-            width: 50
+            id: returnButton
+
+            height: parent.height * 0.05
+            width: parent.width * 0.15
             anchors.horizontalCenter: parent.horizontalCenter
+            //TODO adicionar icone
+            src: "qrc:/resources/images/RETURN-ICON.png"
 
             onClicked: {
                 root.finish()
