@@ -1,44 +1,21 @@
 #include "moviemodel.h"
 
 MovieModel::MovieModel() :
-    _nota(0.00),
-    _nome(""),
-    _imagem(""),
-    _descricao(""),
-    _genero("") {}
+    _show( nullptr ) {}
 
-double MovieModel::nota() const {
-    return _nota;
+double MovieModel::score() const {
+    return _score;
 }
 
-void MovieModel::setNota(const double nota) {
-    _nota = nota;
+void MovieModel::setScore( const double score ) {
+    _score = score;
 }
 
-QString MovieModel::nome() const {
-    return _nome;
+ShowModel *MovieModel::show() const {
+    return _show;
 }
 
-void MovieModel::setNome(const QString &nome) {
-    _nome = nome;
+void MovieModel::setShow( ShowModel* show ) {
+    _show = show;
 }
 
-QString MovieModel::imagem() const {
-    return _imagem;
-}
-
-void MovieModel::setImagem(const QString &path) {
-    _imagem = path;
-}
-
-QString MovieModel::descricao() const {
-    return _descricao;
-}
-
-QString MovieModel::genero() const {
-    return _genero;
-}
-
-void MovieModel::setGenero(const QString &genero) {
-    _genero = genero;
-}

@@ -2,31 +2,21 @@
 #define MOVIEMODEL_H
 
 #include <QObject>
+#include "showmodel.h"
+
 class MovieModel : public QObject {
 public:
     MovieModel();
 
-    double nota() const;
-    void setNota( const double nota );
+    double score() const;
+    void setScore( const double score );
 
-    QString nome() const;
-    void setNome( const QString& nome );
-
-    QString imagem() const;
-    void setImagem( const QString& path );
-
-    QString descricao() const;
-    void setDescricao( const QString& descricao );
-
-    QString genero() const;
-    void setGenero( const QString& genero );
+    ShowModel* show() const;
+    void setShow( ShowModel* show );
 
 private:
-    double _nota;
-    QString _nome;
-    QString _imagem;
-    QString _descricao;
-    QString _genero;
+    double _score;
+    ShowModel* _show;
 };
 
 #endif // MOVIEMODEL_H
