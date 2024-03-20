@@ -5,10 +5,21 @@
 
 class MainScreenControl : public QObject {
     Q_OBJECT
+    Q_PROPERTY( QString sessionDescription READ sessionDescription WRITE setSessionDescription NOTIFY sessionDescriptionChanged )
+
+public:
+    explicit MainScreenControl( QObject* parent = nullptr );
 
 public slots:
-
     void doStart();
+    QString sessionDescription() const;
+    void setSessionDescription( const QString& sessionDescription );
+
+signals:
+    void sessionDescriptionChanged();
+
+private:
+    QString _sessionDescription;
 };
 
 #endif // MAINSCREENCONTROL_H

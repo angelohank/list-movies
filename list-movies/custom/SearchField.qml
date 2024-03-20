@@ -6,6 +6,8 @@ Row {
     width: 240
     spacing: 10
 
+    signal search( string filter );
+
     TextFieldCustom {
         id: textField
 
@@ -21,7 +23,7 @@ Row {
         src: "qrc:/resources/images/SEARCH-ICON.png"
 
         onClicked: {
-            //TODO: realizar filtro
+            root.search( textField.text );
         }
     }
 }

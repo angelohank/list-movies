@@ -1,19 +1,14 @@
 import QtQuick 2.15
 import QtQuick.Controls 2.15
+import QtQml 2.15
 
 import "../custom"
 import  MainScreenControl 1.0
 
-Window {
+Item {
     id: root
-    width: 400
-    height: 600
-    visible: true
-    title: qsTr( "List Movies" )
 
-    Component.onCompleted: {
-        control.doStart();
-    }
+    signal finish
 
     MainScreenControl {
         id: control
@@ -37,6 +32,10 @@ Window {
             width: parent.width
 
             anchors.horizontalCenter: parent.horizontalCenter
+
+            onSearch: function( filter ) {
+                root.finish()
+            }
         }
 
         Divider {
@@ -45,7 +44,7 @@ Window {
         }
 
         Text {
-            text: "Em alta"
+            text: control.sessionDescription
 
             anchors.left: searchField.left
             font {

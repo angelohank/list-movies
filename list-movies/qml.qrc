@@ -7,5 +7,6 @@
         <file>custom/TextFieldCustom.qml</file>
         <file>resources/images/SEARCH-ICON.png</file>
         <file>custom/Divider.qml</file>
+        <file>screens/DetailScreen.qml</file>
     </qresource>
 </RCC>

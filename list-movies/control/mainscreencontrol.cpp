@@ -5,6 +5,10 @@
 #include <QNetworkReply>
 #include <QDebug>
 
+MainScreenControl::MainScreenControl( QObject* parent ) :
+    QObject( parent ),
+    _sessionDescription( "Em alta" ){}
+
 void MainScreenControl::doStart() {
     QNetworkAccessManager manager;
     QUrl url("http://api.tvmaze.com/search/shows?q=girls");
@@ -25,4 +29,17 @@ void MainScreenControl::doStart() {
     qDebug() << response;
 
     qDebug() << data;
+}
+
+QString MainScreenControl::sessionDescription() const {
+    return _sessionDescription;
+}
+
+void MainScreenControl::setSessionDescription( const QString &sessionDescription ) {
+    if( _sessionDescription == sessionDescription ) {
+        return;
+    }
+
+    _sessionDescription = sessionDescription;
+    emit sessionDescriptionChanged();
 }
