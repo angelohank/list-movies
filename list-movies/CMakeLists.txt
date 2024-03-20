@@ -11,11 +11,13 @@ set(CMAKE_AUTORCC ON)
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
-find_package(QT NAMES Qt6 Qt5 REQUIRED COMPONENTS Core Quick)
-find_package(Qt${QT_VERSION_MAJOR} REQUIRED COMPONENTS Core Quick)
+find_package(QT NAMES Qt6 Qt5 REQUIRED COMPONENTS Core Quick )
+find_package(Qt${QT_VERSION_MAJOR} REQUIRED COMPONENTS Core Quick )
 
 set(PROJECT_SOURCES
         main.cpp
+        control/mainscreencontrol.cpp
+        control/mainscreencontrol.h
         qml.qrc
 )
 
@@ -43,7 +45,7 @@ else()
 endif()
 
 target_link_libraries(list-movies
-  PRIVATE Qt${QT_VERSION_MAJOR}::Core Qt${QT_VERSION_MAJOR}::Quick)
+  PRIVATE Qt${QT_VERSION_MAJOR}::Core Qt${QT_VERSION_MAJOR}::Quick )
 
 set_target_properties(list-movies PROPERTIES
     MACOSX_BUNDLE_GUI_IDENTIFIER my.example.com
