@@ -10,14 +10,16 @@ MainScreenControl::MainScreenControl( QObject* parent ) :
     _sessionDescription( "Em alta" ),
     _controller( new MovieController() ){}
 
-void MainScreenControl::doStart() {
-
-    //isolar em function loadMovies
+void MainScreenControl::loadInitialMovies() {
     QObject::connect( &_requester, &NetworkRequester::requestFinished, this, &MainScreenControl::moviesConverter );
 
     //TODO tratar filtro aqui e a url em si fica no backend
     _requester.makeRequest( QUrl( URL ) );
 
+}
+
+void MainScreenControl::doStart() {
+    loadInitialMovies();
 }
 
 QString MainScreenControl::sessionDescription() const {
@@ -43,5 +45,6 @@ void MainScreenControl::moviesConverter( const QByteArray& data ) {
 }
 
 QList<MovieModel*> MainScreenControl::search( const QString& filter ) {
+    setSessionDescription( "Resultados" );
     return {};
 }

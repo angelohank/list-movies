@@ -14,6 +14,8 @@ class MainScreenControl : public QObject {
 public:
     explicit MainScreenControl( QObject* parent = nullptr );
 
+    void loadInitialMovies();
+
 public slots:
     void doStart();
     QString sessionDescription() const;

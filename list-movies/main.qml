@@ -26,7 +26,7 @@ ApplicationWindow {
             id: mainScreen
             anchors.fill: parent
 
-            onFinish: {
+            onShowDetailScreen: {
                 stack.push( detailScreenComponent )
             }
         }

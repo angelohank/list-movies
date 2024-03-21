@@ -8,8 +8,6 @@ import  MainScreenControl 1.0
 Item {
     id: root
 
-    signal finish
-
     MainScreenControl {
         id: control
     }
@@ -34,8 +32,7 @@ Item {
             anchors.horizontalCenter: parent.horizontalCenter
 
             onSearch: function( filter ) {
-                //root.finish()
-                control.doStart()
+                control.search( filter )
             }
         }
 

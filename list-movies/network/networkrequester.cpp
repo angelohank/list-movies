@@ -17,7 +17,7 @@ void NetworkRequester::makeRequest( const QUrl& url ) {
     }
 
     QEventLoop eventLoop;
-    QObject::connect( &manager, SIGNAL(finished(QNetworkReply*)), &eventLoop, SLOT(quit())  );
+    QObject::connect( &manager, SIGNAL( finished( QNetworkReply* ) ), &eventLoop, SLOT( quit() )  );
     eventLoop.exec();
 
     emit requestFinished( response->readAll() );
