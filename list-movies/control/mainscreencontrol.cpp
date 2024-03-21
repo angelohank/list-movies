@@ -1,9 +1,8 @@
 #include "mainscreencontrol.h"
 
+#include <QObject>
 #include <QDebug>
 #include <QList>
-
-constexpr int MAX_SIZE = 5;
 
 MainScreenControl::MainScreenControl( QObject* parent ) :
     QObject( parent ),
@@ -13,6 +12,20 @@ MainScreenControl::MainScreenControl( QObject* parent ) :
 
 void MainScreenControl::loadInitialMovies() {
     //TODO carregar series em alta
+}
+
+QList<QObject*> MainScreenControl::moviesToObject( QList<MovieModel*> movies ) const {
+    QList<QObject*> movieObjects = {};
+
+    for( MovieModel* movie : _movies ) {
+        QObject* object = qobject_cast<QObject*>( movie );
+
+        if( object ) {
+            movieObjects.append( movie );
+        }
+    }
+
+    return movieObjects;
 }
 
 void MainScreenControl::doStart() {
@@ -41,9 +54,15 @@ void MainScreenControl::moviesConverter( const QByteArray& data ) {
     emit qtMoviesChanged();
 }
 
-QList<MovieModel*> MainScreenControl::search( const QString& filter ) {
+void MainScreenControl::search( const QString& filter ) {
     setSessionDescription( "Resultados" );
     _movies = _controller->searchWithParamns( filter );
 
+    QList<QObject*> movieObjects = moviesToObject( _movies );
+
+    emit movies( movieObjects );
+}
+
+QList<MovieModel*> MainScreenControl::movieList() const {
     return _movies;
 }
