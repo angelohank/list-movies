@@ -1,8 +1,9 @@
 #include "mainscreencontrol.h"
 
 #include <QDebug>
+#include <QList>
 
-constexpr const char* URL = "http://api.tvmaze.com/search/shows?q=girls";
+constexpr int MAX_SIZE = 5;
 
 MainScreenControl::MainScreenControl( QObject* parent ) :
     QObject( parent ),
@@ -11,11 +12,7 @@ MainScreenControl::MainScreenControl( QObject* parent ) :
     _controller( new MovieController() ){}
 
 void MainScreenControl::loadInitialMovies() {
-    QObject::connect( &_requester, &NetworkRequester::requestFinished, this, &MainScreenControl::moviesConverter );
-
-    //TODO tratar filtro aqui e a url em si fica no backend
-    _requester.makeRequest( QUrl( URL ) );
-
+    //TODO carregar series em alta
 }
 
 void MainScreenControl::doStart() {
@@ -46,5 +43,7 @@ void MainScreenControl::moviesConverter( const QByteArray& data ) {
 
 QList<MovieModel*> MainScreenControl::search( const QString& filter ) {
     setSessionDescription( "Resultados" );
-    return {};
+    _movies = _controller->searchWithParamns( filter );
+
+    return _movies;
 }

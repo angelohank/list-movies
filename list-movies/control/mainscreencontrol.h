@@ -3,7 +3,6 @@
 
 #include <memory>
 #include <QObject>
-#include "./network/networkrequester.h"
 #include "./controller/moviecontroller.h"
 
 class MainScreenControl : public QObject {
@@ -33,7 +32,6 @@ signals:
 private:
     QList<MovieModel*> _movies;
     QString _sessionDescription;
-    NetworkRequester _requester;
     std::unique_ptr<MovieController> _controller;
 };
 
