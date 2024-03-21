@@ -24,8 +24,12 @@ ShowModel* ShowConverter::fromJson( const QJsonObject& json) const {
         }
     }
 
-    if( showObject.contains( ShowModel::RATING ) && showObject.contains( ShowModel::AVERANGE) ) {
-        show->setAverage( showObject.value( ShowModel::AVERANGE ).toDouble() );
+    if( showObject.contains( ShowModel::RATING ) ){
+        QJsonObject ratingObject = showObject.value( ShowModel::RATING ).toObject();
+
+        if( ratingObject.contains( ShowModel::AVERANGE ) ) {
+            show->setAverage( ratingObject.value( ShowModel::AVERANGE ).toDouble() );
+        }
     }
 
     if( showObject.contains( ShowModel::GENRES ) ) {

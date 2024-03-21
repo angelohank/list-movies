@@ -59,12 +59,18 @@ MouseArea {
                     Text {
                         id: name
                         text: root.name
+                        width: detailContainer.width
                         font {
                             bold: true
-                            pixelSize: 18
+                            pixelSize: 15
                         }
-                        anchors.right: parent.right
+                        anchors {
+                            right: parent.right
+                            topMargin: 10
+                        }
+
                         rightPadding: 10
+                        wrapMode: Text.WordWrap
                     }
 
                     Text {

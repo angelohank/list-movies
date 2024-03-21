@@ -79,14 +79,14 @@ Item {
                 delegate: MoviePreview {
 
                     required property int index
-                    required property string modelData
+                    required property var modelData
 
                     height: 70
                     width: parent.width
 
-                    src: ""
+                    src: modelData.show.imagem
                     name: modelData.show.nome
-                    average: model ? model.show.average : "0.00"
+                    average: modelData.show.average
 
                     onSelected: {
                         console.log( modelData.length )
