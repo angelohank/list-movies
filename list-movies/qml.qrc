@@ -10,5 +10,6 @@
         <file>screens/DetailScreen.qml</file>
         <file>resources/images/RETURN-ICON.png</file>
         <file>custom/MoviePreview.qml</file>
+        <file>custom/DetailComponent.qml</file>
     </qresource>
 </RCC>

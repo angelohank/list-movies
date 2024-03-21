@@ -3,6 +3,7 @@
 #include <QQmlContext>
 
 #include <control/mainscreencontrol.h>
+#include <control/detailscreencontrol.h>
 #include <model/moviemodel.h>
 #include <model/showmodel.h>
 
@@ -22,6 +23,8 @@ int main(int argc, char *argv[])
     }, Qt::QueuedConnection);
 
     qmlRegisterType<MainScreenControl>("MainScreenControl", 1 ,0, "MainScreenControl");
+    qmlRegisterType<DetailScreenControl>("DetailScreenControl", 1 ,0, "DetailScreenControl");
+
     qmlRegisterType<MovieModel*>("MovieModel", 1 ,0, "MovieModel");
     qmlRegisterType<ShowModel*>("ShowModel", 1 ,0, "ShowModel");
 

@@ -24,10 +24,12 @@ public slots:
 
     int qtMovies() const;
 
-    void moviesConverter( const QByteArray& data);
+    void moviesConverter( const QByteArray& data );
     void search( const QString& filter );
 
     QList<MovieModel*> movieList() const;
+
+    void selectedMovie( const int index );
 
 signals:
     void sessionDescriptionChanged();
@@ -35,8 +37,10 @@ signals:
     void moviesChanged();
 
     void movies( QList<QObject*> movies );
+    void showDetail( QObject* movie );
 
 private:
+    MovieModel* _movie;
     QList<MovieModel*> _movies;
     QString _sessionDescription;
     std::unique_ptr<MovieController> _controller;

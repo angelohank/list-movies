@@ -8,13 +8,17 @@ import  MainScreenControl 1.0
 Item {
     id: root
 
+    signal showDetail( var movie )
+
     MainScreenControl {
         id: control
 
         onMovies: function( movies ) {
-
-            var teste = movies;
             repeater.model = movies
+        }
+
+        onShowDetail: function( movie ) {
+            root.showDetail( movie )
         }
     }
 
@@ -69,12 +73,6 @@ Item {
 
             Repeater {
                 id: repeater
-                model: control.movies
-
-                onModelChanged: {
-                    var teste2 = model
-                    console.log("")
-                }
 
                 delegate: MoviePreview {
 
@@ -89,7 +87,7 @@ Item {
                     average: modelData.show.average
 
                     onSelected: {
-                        console.log( modelData.length )
+                        control.selectedMovie( index )
                     }
                 }
             }

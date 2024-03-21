@@ -66,3 +66,13 @@ void MainScreenControl::search( const QString& filter ) {
 QList<MovieModel*> MainScreenControl::movieList() const {
     return _movies;
 }
+
+void MainScreenControl::selectedMovie( const int index ) {
+    qDebug() << index;
+
+    _movie = movieList().at( index );
+
+    QObject* movieObject = qobject_cast<QObject*>( _movie );
+
+    emit showDetail( movieObject );
+}
