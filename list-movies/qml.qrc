@@ -9,5 +9,6 @@
         <file>custom/Divider.qml</file>
         <file>screens/DetailScreen.qml</file>
         <file>resources/images/RETURN-ICON.png</file>
+        <file>custom/MoviePreview.qml</file>
     </qresource>
 </RCC>

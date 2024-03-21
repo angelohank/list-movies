@@ -6,6 +6,7 @@ constexpr const char* URL = "http://api.tvmaze.com/search/shows?q=girls";
 
 MainScreenControl::MainScreenControl( QObject* parent ) :
     QObject( parent ),
+    _movies( {} ),
     _sessionDescription( "Em alta" ),
     _controller( new MovieController() ){}
 
@@ -32,10 +33,15 @@ void MainScreenControl::setSessionDescription( const QString &sessionDescription
     emit sessionDescriptionChanged();
 }
 
-void MainScreenControl::moviesConverter( const QByteArray& data ) {
-    QList<MovieModel*> movies = _controller->moviesConverter( data );
+int MainScreenControl::qtMovies() const {
+    return _movies.size();
 }
 
-QList<MovieModel*> MainScreenControl::search(const QString& filter) {
+void MainScreenControl::moviesConverter( const QByteArray& data ) {
+    _movies = _controller->moviesConverter( data );
+    emit qtMoviesChanged();
+}
+
+QList<MovieModel*> MainScreenControl::search( const QString& filter ) {
     return {};
 }

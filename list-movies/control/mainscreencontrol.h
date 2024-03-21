@@ -9,6 +9,7 @@
 class MainScreenControl : public QObject {
     Q_OBJECT
     Q_PROPERTY( QString sessionDescription READ sessionDescription WRITE setSessionDescription NOTIFY sessionDescriptionChanged )
+    Q_PROPERTY( int qtMovies READ qtMovies NOTIFY qtMoviesChanged )
 
 public:
     explicit MainScreenControl( QObject* parent = nullptr );
@@ -18,13 +19,17 @@ public slots:
     QString sessionDescription() const;
     void setSessionDescription( const QString& sessionDescription );
 
+    int qtMovies() const;
+
     void moviesConverter( const QByteArray& data);
     QList<MovieModel*> search( const QString& filter );
 
 signals:
     void sessionDescriptionChanged();
+    void qtMoviesChanged();
 
 private:
+    QList<MovieModel*> _movies;
     QString _sessionDescription;
     NetworkRequester _requester;
     std::unique_ptr<MovieController> _controller;

@@ -56,6 +56,15 @@ Item {
             }
         }
 
+        Repeater {
+            id: repeater
+            model: control.qtMovies
+
+            MoviePreview {
+
+            }
+        }
+
         //repeater com os componentes das series
     }
 }
