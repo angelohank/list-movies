@@ -10,6 +10,12 @@ Item {
 
     MainScreenControl {
         id: control
+
+        onMovies: function( movies ) {
+
+            var teste = movies;
+            repeater.model = movies
+        }
     }
 
     Flickable {
@@ -19,11 +25,6 @@ Item {
         contentWidth: container.width
         contentHeight: container.height
         flickableDirection: Flickable.VerticalFlick
-
-        onFlickEnded: {
-            flickable.originX = contentX
-            flickable.originY = contentY
-        }
 
         Column {
             id: container
@@ -54,6 +55,7 @@ Item {
             }
 
             Text {
+                id: session
                 text: control.sessionDescription
 
                 anchors.left: searchField.left
@@ -67,15 +69,27 @@ Item {
 
             Repeater {
                 id: repeater
-                model: control.qtMovies
+                model: control.movies
 
-                MoviePreview {
+                onModelChanged: {
+                    var teste2 = model
+                    console.log("")
+                }
+
+                delegate: MoviePreview {
+
+                    required property int index
+                    required property string modelData
+
                     height: 70
                     width: parent.width
-                    src: "https://static.tvmaze.com/uploads/images/original_untouched/191/478539.jpg"
 
-                    onSelected: function( index ) {
-                        console.log(index)
+                    src: ""
+                    name: modelData.show.nome
+                    average: model ? model.show.average : "0.00"
+
+                    onSelected: {
+                        console.log( modelData.length )
                     }
                 }
             }

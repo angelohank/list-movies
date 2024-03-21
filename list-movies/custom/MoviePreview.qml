@@ -8,12 +8,12 @@ MouseArea {
     signal selected
 
     onClicked: {
-        //TODO implementar
+        root.selected()
     }
 
     property string src: ""
-    property string name: "Nome"
-    property string average: "average"
+    property string name: ""
+    property string average: ""
 
     Rectangle {
         id: externalContainer
