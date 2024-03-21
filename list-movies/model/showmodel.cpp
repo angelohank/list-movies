@@ -3,12 +3,18 @@
 ShowModel::ShowModel()
 {}
 
+ShowModel::ShowModel(const QString& nome, const QString& imagem, const QString& descricao) :
+    _nome( nome ),
+    _imagem( imagem ),
+    _descricao( descricao ) {}
+
 double ShowModel::average() const {
     return _average;
 }
 
 void ShowModel::setAverage( const double average ) {
     _average = average;
+    emit averageChanged();
 }
 
 QString ShowModel::nome() const {
@@ -17,6 +23,7 @@ QString ShowModel::nome() const {
 
 void ShowModel::setNome( const QString& nome ) {
     _nome = nome;
+    emit nomeChanged();
 }
 
 QString ShowModel::imagem() const {
@@ -25,6 +32,7 @@ QString ShowModel::imagem() const {
 
 void ShowModel::setImagem( const QString& path ) {
     _imagem = path;
+    emit imagemChanged();
 }
 
 QString ShowModel::descricao() const {
@@ -33,6 +41,7 @@ QString ShowModel::descricao() const {
 
 void ShowModel::setDescricao(const QString& descricao) {
     _descricao = descricao;
+    emit descricaoChanged();
 }
 
 QList<QString> ShowModel::generos() const {

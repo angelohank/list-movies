@@ -1,13 +1,19 @@
 #ifndef SHOWMODEL_H
 #define SHOWMODEL_H
 
+#include <QObject>
 #include <QString>
 #include <QList>
 
-class ShowModel
-{
+class ShowModel : public QObject {
+    Q_OBJECT
+    Q_PROPERTY( double average READ average NOTIFY averageChanged )
+    Q_PROPERTY( QString nome READ nome NOTIFY nomeChanged )
+    Q_PROPERTY( QString imagem READ imagem NOTIFY imagemChanged )
+    Q_PROPERTY( QString descricao READ descricao NOTIFY descricaoChanged )
 public:
     ShowModel();
+    ShowModel( const QString& nome, const QString& imagem, const QString& descricao );
 
     double average() const;
     void setAverage( const double average );
@@ -33,6 +39,12 @@ public:
     static constexpr const char* IMAGE = "image";
     static constexpr const char* ORIGINAL = "original";
     static constexpr const char* MEDIUM = "medium";
+
+signals:
+    void averageChanged();
+    void nomeChanged();
+    void imagemChanged();
+    void descricaoChanged();
 
 private:
     double _average;
