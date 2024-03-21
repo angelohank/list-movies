@@ -1,7 +1,10 @@
 #include <QGuiApplication>
 #include <QQmlApplicationEngine>
+#include <QQmlContext>
 
 #include <control/mainscreencontrol.h>
+#include <model/moviemodel.h>
+#include <model/showmodel.h>
 
 int main(int argc, char *argv[])
 {
@@ -19,6 +22,8 @@ int main(int argc, char *argv[])
     }, Qt::QueuedConnection);
 
     qmlRegisterType<MainScreenControl>("MainScreenControl", 1 ,0, "MainScreenControl");
+    qmlRegisterType<MovieModel*>("MovieModel", 1 ,0, "MovieModel");
+    qmlRegisterType<ShowModel*>("ShowModel", 1 ,0, "ShowModel");
 
     engine.load(url);
 
