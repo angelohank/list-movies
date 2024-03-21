@@ -1,5 +1,7 @@
 #include "showconverter.h"
 
+#include <QJsonArray>
+
 ShowModel* ShowConverter::fromJson( const QJsonObject& json) const {
 
     QJsonObject showObject = json.value( ShowModel::SHOW ).toObject();
@@ -14,19 +16,28 @@ ShowModel* ShowConverter::fromJson( const QJsonObject& json) const {
     }
 
     if( showObject.contains(ShowModel::IMAGE ) ) {
-        show->setImagem( showObject.contains( ShowModel::ORIGINAL ) ?
-                             showObject.value( ShowModel::ORIGINAL ).toString() :
-                             showObject.value( ShowModel::MEDIUM ).toString() );
+
+        QJsonObject imageObject = showObject.value( ShowModel::IMAGE ).toObject();
+
+        if( imageObject.contains( ShowModel::ORIGINAL ) ) {
+            show->setImagem( imageObject.value( ShowModel::ORIGINAL ).toString() );
+        }
     }
 
     if( showObject.contains( ShowModel::RATING ) && showObject.contains( ShowModel::AVERANGE) ) {
         show->setAverage( showObject.value( ShowModel::AVERANGE ).toDouble() );
     }
 
-    //TODO ajustar converter dos generos
-//    if( showObject.contains( ShowModel::GENRES ) ) {
-//        show->setGeneros( showObject.value( ShowModel::GENRES).toArray() );
-//    }
+    if( showObject.contains( ShowModel::GENRES ) ) {
+        QJsonArray genres = showObject.value( ShowModel::GENRES ).toArray();
+
+        QList<QString> genresToString = {};
+        for( auto genre : genres ) {
+            genres.append( genre );
+        }
+
+        show->setGeneros( genresToString );
+    }
 
     return show;
 }
