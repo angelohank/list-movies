@@ -58,10 +58,14 @@ Item {
             model: control.qtMovies
 
             MoviePreview {
+                height: 70
+                width: parent.width
+                src: "https://static.tvmaze.com/uploads/images/original_untouched/191/478539.jpg"
 
+                onSelected: function( index ) {
+                    console.log(index)
+                }
             }
         }
-
-        //repeater com os componentes das series
     }
 }

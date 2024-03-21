@@ -1,15 +1,21 @@
 #include "moviecontroller.h"
 
 #include <QDebug>
+#include <QJsonObject>
+#include <QJsonArray>
 
-MovieController::MovieController() {}
+MovieController::MovieController() :
+    _movies( {} ){}
 
 QList<MovieModel*> MovieController::moviesConverter( const QByteArray& data ) {
-    QList<MovieModel*> movies = {};
+    //QList<MovieModel*> movies = {};
 
     QJsonDocument moviesToJSON = dataToJSON( data );
+    QJsonObject jsonObject = moviesToJSON.object();
 
-    return movies;
+    _movies = converter.fromJson( moviesToJSON );
+
+    return _movies;
 }
 
 QJsonDocument MovieController::dataToJSON( const QByteArray& data ) const {

@@ -12,9 +12,6 @@ public:
     MovieController();
     QList<MovieModel*> moviesConverter( const QByteArray& data );
 
-    void processJsonArray(const QJsonArray& jsonArray);
-    void processJsonObject(const QJsonObject &jsonObject);
-
 private:
     QList<MovieModel*> _movies;
     MovieConverter converter;
