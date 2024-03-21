@@ -1,8 +1,10 @@
 #ifndef MAINSCREENCONTROL_H
 #define MAINSCREENCONTROL_H
 
+#include <memory>
 #include <QObject>
 #include "./network/networkrequester.h"
+#include "./controller/moviecontroller.h"
 
 class MainScreenControl : public QObject {
     Q_OBJECT
@@ -16,7 +18,8 @@ public slots:
     QString sessionDescription() const;
     void setSessionDescription( const QString& sessionDescription );
 
-    void moviesConverter( const QByteArray& data) const;
+    void moviesConverter( const QByteArray& data);
+    QList<MovieModel*> search( const QString& filter );
 
 signals:
     void sessionDescriptionChanged();
@@ -24,6 +27,7 @@ signals:
 private:
     QString _sessionDescription;
     NetworkRequester _requester;
+    std::unique_ptr<MovieController> _controller;
 };
 
 #endif // MAINSCREENCONTROL_H

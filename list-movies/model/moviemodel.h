@@ -14,6 +14,8 @@ public:
     ShowModel* show() const;
     void setShow( ShowModel* show );
 
+    static constexpr const char* SCORE = "score";
+
 private:
     double _score;
     ShowModel* _show;

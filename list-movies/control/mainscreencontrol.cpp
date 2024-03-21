@@ -1,16 +1,21 @@
 #include "mainscreencontrol.h"
 
 #include <QDebug>
-#include "./controller/moviecontroller.h"
+
+constexpr const char* URL = "http://api.tvmaze.com/search/shows?q=girls";
 
 MainScreenControl::MainScreenControl( QObject* parent ) :
     QObject( parent ),
-    _sessionDescription( "Em alta" ){}
+    _sessionDescription( "Em alta" ),
+    _controller( new MovieController() ){}
 
 void MainScreenControl::doStart() {
+
+    //isolar em function loadMovies
     QObject::connect( &_requester, &NetworkRequester::requestFinished, this, &MainScreenControl::moviesConverter );
 
-    _requester.makeRequest( QUrl( "http://api.tvmaze.com/search/shows?q=girls" ) );
+    //TODO tratar filtro aqui e a url em si fica no backend
+    _requester.makeRequest( QUrl( URL ) );
 
 }
 
@@ -27,8 +32,10 @@ void MainScreenControl::setSessionDescription( const QString &sessionDescription
     emit sessionDescriptionChanged();
 }
 
-void MainScreenControl::moviesConverter( const QByteArray& data ) const {
-    QList<MovieModel*> movies = MovieController().moviesConverter( data );
+void MainScreenControl::moviesConverter( const QByteArray& data ) {
+    QList<MovieModel*> movies = _controller->moviesConverter( data );
+}
 
-    qDebug() << movies;
+QList<MovieModel*> MainScreenControl::search(const QString& filter) {
+    return {};
 }

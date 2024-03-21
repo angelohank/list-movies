@@ -31,6 +31,10 @@ QString ShowModel::descricao() const {
     return _descricao;
 }
 
+void ShowModel::setDescricao(const QString& descricao) {
+    _descricao = descricao;
+}
+
 QList<QString> ShowModel::generos() const {
     return _generos;
 }

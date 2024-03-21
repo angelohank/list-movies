@@ -15,18 +15,19 @@ QList<MovieModel*> MovieConverter::fromJson( const QJsonDocument& json ) {
                  MovieModel* movie = new MovieModel();
                  QJsonObject jsonObj = jsonValue.toObject();
 
-                 if( jsonObj.contains("score") ) {
-                    movie->setScore(jsonObj.value("score").toDouble());
+                 if( jsonObj.contains( MovieModel::SCORE ) ) {
+                    movie->setScore(jsonObj.value( MovieModel::SCORE ).toDouble());
                  }
 
-                 if( jsonObj.contains("show") ) {
+                 if( jsonObj.contains( ShowModel::SHOW ) ) {
                      movie->setShow( showConverter.fromJson( jsonObj ) );
                  }
 
-                 movies.append(movie);
-                 //DELETAR O PONTEIRO OU NAO? testar
+                 movies.append( movie );
+
                  }
              }
          }
+
     return movies;
 }

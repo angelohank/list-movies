@@ -22,8 +22,14 @@ set(PROJECT_SOURCES
         network/networkrequester.h
         model/moviemodel.cpp
         model/moviemodel.h
+        model/showmodel.cpp
+        model/showmodel.h
         controller/moviecontroller.cpp
         controller/moviecontroller.h
+        converter/movieconverter.cpp
+        converter/movieconverter.h
+        converter/showconverter.cpp
+        converter/showconverter.h
         qml.qrc
 )
 
