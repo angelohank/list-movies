@@ -24,6 +24,7 @@ Row {
 
         onClicked: {
             root.search( textField.text );
+            textField.text = ""
         }
     }
 }

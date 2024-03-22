@@ -4,14 +4,18 @@
 #include <QDebug>
 #include <QList>
 
+constexpr const char* EM_ALTA = "Em alta";
+
 MainScreenControl::MainScreenControl( QObject* parent ) :
     QObject( parent ),
+    _movie( nullptr ),
+    _initialMovies( {} ),
     _movies( {} ),
-    _sessionDescription( "Em alta" ),
+    _sessionDescription( EM_ALTA ),
     _controller( new MovieController() ){}
 
-void MainScreenControl::loadInitialMovies() {
-    //TODO carregar series em alta
+void MainScreenControl::loadInitialMovies() {    
+    _initialMovies =_controller->searchInitialMovies();
 }
 
 QList<QObject*> MainScreenControl::moviesToObject( QList<MovieModel*> movies ) const {
@@ -29,7 +33,14 @@ QList<QObject*> MainScreenControl::moviesToObject( QList<MovieModel*> movies ) c
 }
 
 void MainScreenControl::doStart() {
-    loadInitialMovies();
+    setSessionDescription( EM_ALTA );
+
+    if( _initialMovies.size() < 1 ) {
+        loadInitialMovies();
+    }
+
+    setMovies( _initialMovies );
+    emit movies( moviesToObject( _initialMovies ) );
 }
 
 QString MainScreenControl::sessionDescription() const {
@@ -47,11 +58,6 @@ void MainScreenControl::setSessionDescription( const QString &sessionDescription
 
 int MainScreenControl::qtMovies() const {
     return _movies.size();
-}
-
-void MainScreenControl::moviesConverter( const QByteArray& data ) {
-    _movies = _controller->moviesConverter( data );
-    emit qtMoviesChanged();
 }
 
 void MainScreenControl::search( const QString& filter ) {
@@ -75,4 +81,9 @@ void MainScreenControl::selectedMovie( const int index ) {
     QObject* movieObject = qobject_cast<QObject*>( _movie );
 
     emit showDetail( movieObject );
+}
+
+void MainScreenControl::setMovies( QList<MovieModel*>& movies) {
+    _movies = movies;
+    emit moviesChanged();
 }

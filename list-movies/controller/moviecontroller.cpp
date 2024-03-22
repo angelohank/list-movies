@@ -18,11 +18,33 @@ QList<MovieModel*> MovieController::moviesConverter( const QByteArray& data ) {
     return _movies;
 }
 
-QList<MovieModel *> MovieController::searchWithParamns( const QString& filter ) {
+QList<MovieModel*> MovieController::searchWithParamns( const QString& filter ) {
     QString urlWithParamns = ( URL + filter );
     doRequest( QUrl( urlWithParamns ) );
 
     return _movies;
+}
+
+QList<MovieModel*> MovieController::searchInitialMovies() {
+    QList<QString> movieNameList = {
+        "The Office",
+        "Breaking Bad",
+        "The Big Bang Theory",
+        "The Walking Dead",
+        "Stranger Things",
+        "Loki",
+        "Gameof Thrones",
+        "House of Dragons",
+        "The Boys"
+    };
+
+    QList<MovieModel*> initialMovies = {};
+
+    for( QString name : movieNameList ) {
+        initialMovies.append( searchWithParamns( name ).first() );
+    }
+
+    return initialMovies;
 }
 
 void MovieController::doRequest( QUrl url ) {

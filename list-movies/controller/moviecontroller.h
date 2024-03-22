@@ -13,6 +13,7 @@ public:
     MovieController();
     QList<MovieModel*> moviesConverter( const QByteArray& data );
     QList<MovieModel*> searchWithParamns( const QString& filter );
+    QList<MovieModel*> searchInitialMovies();
     void doRequest( QUrl url );
 
 private:
