@@ -99,7 +99,6 @@ Rectangle {
                 anchors.left: parent.left
                 text: root.modelData.show.descricao
                 wrapMode: Text.WordWrap
-                //todo deixar sempre alinhado
             }
         }
     }

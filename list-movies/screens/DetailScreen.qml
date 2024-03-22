@@ -54,7 +54,7 @@ Item {
             src: "qrc:/resources/images/RETURN-ICON.png"
 
             onClicked: {
-                control.quit()
+                root.finish()
             }
         }
     }
