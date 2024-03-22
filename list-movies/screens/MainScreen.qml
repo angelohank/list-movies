@@ -10,6 +10,14 @@ Item {
 
     signal showDetail( var movie )
 
+    function doStart() {
+        control.doStart()
+    }
+
+    Component.onCompleted: {
+        control.doStart()
+    }
+
     MainScreenControl {
         id: control
 
@@ -49,7 +57,11 @@ Item {
                 anchors.horizontalCenter: parent.horizontalCenter
 
                 onSearch: function( filter ) {
-                    control.search( filter )
+                    if( filter !== "" ) {
+                        control.search( filter )
+                    } else {
+                        control.doStart()
+                    }
                 }
             }
 

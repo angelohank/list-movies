@@ -43,6 +43,7 @@ ApplicationWindow {
 
             onFinish: {
                 stack.pop()
+                stack.currentItem.doStart()
             }
         }
     }
