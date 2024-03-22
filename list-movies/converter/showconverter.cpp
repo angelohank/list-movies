@@ -36,8 +36,9 @@ ShowModel* ShowConverter::fromJson( const QJsonObject& json) const {
         QJsonArray genres = showObject.value( ShowModel::GENRES ).toArray();
 
         QList<QString> genresToString = {};
+
         for( auto genre : genres ) {
-            genres.append( genre );
+            genresToString.append( genre.toString() );
         }
 
         show->setGeneros( genresToString );
