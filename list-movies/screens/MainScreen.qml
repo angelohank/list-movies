@@ -22,7 +22,7 @@ Item {
         id: control
 
         onMovies: function( movies ) {
-            repeater.model = movies
+            listView.model = movies
         }
 
         onShowDetail: function( movie ) {
@@ -34,13 +34,66 @@ Item {
         id: container
 
         anchors.fill: parent
+        spacing: 10
+        anchors.margins: 15
 
-        Header {
-            id: header
-
+        SearchField {
+            id: searchField
+            height: parent.height * 0.07
             width: parent.width
-            height: 50
-            anchors.margins: 10
+
+            anchors.horizontalCenter: parent.horizontalCenter
+
+            onSearch: function( filter ) {
+                if( filter !== "" ) {
+                    control.search( filter )
+                } else {
+                    control.doStart()
+                }
+            }
+        }
+
+        Divider {
+            width: parent.width
+            anchors.horizontalCenter: parent.horizontalCenter
+        }
+
+        Text {
+            id: session
+            text: control.sessionDescription
+            anchors.left: searchField.left
+            font {
+                weight: Font.Thin
+                pixelSize: root.height * 0.03
+                family: "Helvetica"
+                italic: true
+            }
+        }
+
+        Component {
+            id: moviePreviewComponent
+
+            MoviePreview {
+                height: 70
+                width: parent.width
+
+                src: modelData.show.imagem
+                name: modelData.show.nome
+                average: modelData.show.average
+
+                onSelected: {
+                    control.selectedMovie( index )
+                }
+            }
+        }
+
+        ListView {
+            id: listView
+
+            height: parent.height
+            width: parent.width
+
+            delegate: moviePreviewComponent
         }
     }
 }

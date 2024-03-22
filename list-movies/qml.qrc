@@ -11,6 +11,5 @@
         <file>resources/images/RETURN-ICON.png</file>
         <file>custom/MoviePreview.qml</file>
         <file>custom/DetailComponent.qml</file>
-        <file>custom/Header.qml</file>
     </qresource>
 </RCC>
