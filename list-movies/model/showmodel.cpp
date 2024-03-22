@@ -50,4 +50,5 @@ QList<QString> ShowModel::generos() const {
 
 void ShowModel::setGeneros( const QList<QString>& generos) {
     _generos = generos;
+    emit generosChanged();
 }

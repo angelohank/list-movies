@@ -11,6 +11,8 @@ class ShowModel : public QObject {
     Q_PROPERTY( QString nome READ nome NOTIFY nomeChanged )
     Q_PROPERTY( QString imagem READ imagem NOTIFY imagemChanged )
     Q_PROPERTY( QString descricao READ descricao NOTIFY descricaoChanged )
+    Q_PROPERTY( QList<QString> generos READ generos NOTIFY generosChanged )
+
 public:
     ShowModel();
     ShowModel( const QString& nome, const QString& imagem, const QString& descricao );
@@ -45,6 +47,7 @@ signals:
     void nomeChanged();
     void imagemChanged();
     void descricaoChanged();
+    void generosChanged();
 
 private:
     double _average;

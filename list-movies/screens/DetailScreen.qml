@@ -40,6 +40,8 @@ Item {
 
             height: parent.height * 0.9
             width: parent.width
+
+            modelData: root.model
         }
 
         //TODO ajustar responsividade vertical

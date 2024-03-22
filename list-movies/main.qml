@@ -27,12 +27,9 @@ ApplicationWindow {
             anchors.fill: parent
 
             onShowDetail: function( movie ) {
-                //detailScreen.setModel( movie )
                 stack.push( detailScreenComponent )
                 stack.currentItem.setModel( movie )
                 stack.currentItem.doStart();
-
-                //detailScreen.doStart()
             }
         }
     }
