@@ -2,7 +2,6 @@ import QtQuick 2.15
 import QtQuick.Controls 2.15
 
 import "../custom"
-import DetailScreenControl 1.0
 
 Item {
     id: root
@@ -13,14 +12,6 @@ Item {
 
     function setModel( model ) {
         root.model = model
-    }
-
-    function doStart() {
-
-    }
-
-    DetailScreenControl {
-        id: control
     }
 
     Column {

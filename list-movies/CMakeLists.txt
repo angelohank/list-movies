@@ -18,8 +18,6 @@ set(PROJECT_SOURCES
         main.cpp
         control/mainscreencontrol.cpp
         control/mainscreencontrol.h
-        control/detailscreencontrol.cpp
-        control/detailscreencontrol.h
         network/networkrequester.cpp
         network/networkrequester.h
         model/moviemodel.cpp
