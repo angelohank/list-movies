@@ -92,6 +92,9 @@ Para executar o projeto, basta clonar o repositório em ou baixar o arquivo .zip
 - CMake: 3.14
 
 ## Trabalhos futuros
+ - Testes unitários
+   - Converter
+   
 Alguns pontos nas interfaces deixaram a desejar, como o scroll das séries, que possui alguns problemas para se chegar até o fim
 Além disso, alguns pontos das interfaces poderiam ser melhor componentizados, como o header da tela principal.
 
