@@ -62,7 +62,6 @@ O backend da aplicação foi desenvolvido usando C++ com Qt Framework ( versão 
 		- Average( double );
 		- Imagem( string ).
 
-//TODO quebrar linha
 ### Frontend:
 #### Screens
 	Camada responsável por conter os arquivos QML que representam as telas da aplicação
