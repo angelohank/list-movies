@@ -108,4 +108,5 @@ Além disso, no backend, poderia ter sido criada uma abstração maior na camada
 - #005 [FEAT] Criar e apresentar loading enquanto as séries são carregadas na tela de preview;
 - #006 [FEAT] Apresentar loading na transição da tela de preview para a tela de detalhes;
 - #007 [FEAT] Recriar visual para ser mais harmonioso e amigável;
+- #008 [FEAT] Componentizar header
 
