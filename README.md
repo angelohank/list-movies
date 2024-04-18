@@ -62,7 +62,6 @@ O backend da aplicação foi desenvolvido usando C++ com Qt Framework ( versão 
 		- Average( double );
 		- Imagem( string ).
 
-//TODO quebrar linha
 ### Frontend:
 #### Screens
 	Camada responsável por conter os arquivos QML que representam as telas da aplicação
@@ -92,8 +91,22 @@ Para executar o projeto, basta clonar o repositório em ou baixar o arquivo .zip
 - CMake: 3.14
 
 ## Trabalhos futuros
+ - Testes unitários
+   - Converter
+   
 Alguns pontos nas interfaces deixaram a desejar, como o scroll das séries, que possui alguns problemas para se chegar até o fim
 Além disso, alguns pontos das interfaces poderiam ser melhor componentizados, como o header da tela principal.
 
 Além disso, no backend, poderia ter sido criada uma abstração maior na camada Network, criando uma classe para conter apenas o endpoint e uma tratativa melhor para os filtros.
+
+## Bugs e melhorias ##
+
+- #001 [BUG] Ajustar campo de detalhes da série para conteúdo não ultrapassar o campo;
+- #002 [BUG] Verificar e corrigir memory leaks;
+- #003 [BUG] Ajustar alinhamento do nome da série na tela de preview;
+- #004 [BUG] Ajustar scroll que fica cortado na tela de preview;
+- #005 [FEAT] Criar e apresentar loading enquanto as séries são carregadas na tela de preview;
+- #006 [FEAT] Apresentar loading na transição da tela de preview para a tela de detalhes;
+- #007 [FEAT] Recriar visual para ser mais harmonioso e amigável;
+- #008 [FEAT] Componentizar header
 
