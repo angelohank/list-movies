@@ -30,70 +30,78 @@ Item {
         }
     }
 
-    Column {
-        id: container
-
+    Rectangle {
+        id: background
         anchors.fill: parent
-        spacing: 10
-        anchors.margins: 15
+        color: "#2E2E2E"
 
-        SearchField {
-            id: searchField
-            height: parent.height * 0.07
-            width: parent.width
+        Column {
+            id: container
 
-            anchors.horizontalCenter: parent.horizontalCenter
+            anchors.fill: parent
+            spacing: 10
+            anchors.margins: 15
 
-            onSearch: function( filter ) {
-                if( filter !== "" ) {
-                    control.search( filter )
-                } else {
-                    control.doStart()
-                }
-            }
-        }
-
-        Divider {
-            width: parent.width
-            anchors.horizontalCenter: parent.horizontalCenter
-        }
-
-        Text {
-            id: session
-            text: control.sessionDescription
-            anchors.left: searchField.left
-            font {
-                weight: Font.Thin
-                pixelSize: root.height * 0.03
-                family: "Helvetica"
-                italic: true
-            }
-        }
-
-        Component {
-            id: moviePreviewComponent
-
-            MoviePreview {
-                height: 70
+            SearchField {
+                id: searchField
+                height: parent.height * 0.07
                 width: parent.width
 
-                src: modelData.show.imagem
-                name: modelData.show.nome
-                average: modelData.show.average
+                anchors.horizontalCenter: parent.horizontalCenter
 
-                onSelected: {
-                    control.selectedMovie( index )
+                onSearch: function( filter ) {
+                    if( filter !== "" ) {
+                        control.search( filter )
+                    } else {
+                        control.doStart()
+                    }
                 }
             }
-        }
 
-        ListView {
-            id: listView
+            Divider {
+                width: parent.width
+                anchors.horizontalCenter: parent.horizontalCenter
+            }
 
-            height: parent.height
-            width: parent.width
+            Text {
+                id: session
+                text: control.sessionDescription
+                anchors.left: searchField.left
+                color: "#D6D6D6"
+                font {
+                    weight: Font.Thin
+                    pixelSize: root.height * 0.03
+                    family: "Helvetica"
+                }
+            }
 
-            delegate: moviePreviewComponent
+            Component {
+                id: moviePreviewComponent
+
+                MoviePreview {
+                    height: 70
+                    width: parent.width
+
+                    src: modelData.show.imagem
+                    name: modelData.show.nome
+                    average: modelData.show.average
+
+                    onSelected: {
+                        control.selectedMovie( index )
+                    }
+                }
+            }
+
+            ListView {
+                id: listView
+
+                height: parent.height
+                width: parent.width
+
+                delegate: moviePreviewComponent
+            }
         }
     }
+
+
 }

@@ -5,6 +5,7 @@ Rectangle {
 
     width: 50
     height: 50
+    radius: 8
 
     property var modelData: undefined
     property string negativeAverage: "#b12b2c"
@@ -64,7 +65,7 @@ Rectangle {
                 }
 
                 anchors.left: parent.left
-                text: root.modelData.show.average
+                text: root.modelData.show.average > 0 ? root.modelData.show.average : "Não avaliado"
                 color: root.modelData.show.average > 6 ? positiveAverage : negativeAverage
             }
 

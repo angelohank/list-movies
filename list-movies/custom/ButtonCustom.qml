@@ -3,8 +3,8 @@ import QtQuick 2.15
 MouseArea {
     id: root
 
-    property string pressedColor: "#6959CD"
-    property string unpressedColor: "#836FFF"
+    property string pressedColor: "#870000"
+    property string unpressedColor: "#B50000"
     property string src: ""
 
 

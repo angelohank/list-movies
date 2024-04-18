@@ -4,7 +4,7 @@
 #include <QDebug>
 #include <QList>
 
-constexpr const char* EM_ALTA = "Em alta";
+constexpr const char* EM_ALTA = "EM ALTA";
 
 MainScreenControl::MainScreenControl( QObject* parent ) :
     QObject( parent ),

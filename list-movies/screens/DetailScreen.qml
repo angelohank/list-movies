@@ -14,38 +14,44 @@ Item {
         root.model = model
     }
 
-    Column {
-        id: container
+    Rectangle {
+        id: background
+        anchors.fill: parent
+        color: "#2E2E2E"
 
-        anchors {
-            fill: parent
-            topMargin: 15
-            leftMargin: 10
-            rightMargin: 10
-        }
+        Column {
+            id: container
 
-        spacing: 15
+            anchors {
+                fill: parent
+                topMargin: 15
+                leftMargin: 10
+                rightMargin: 10
+            }
 
-        DetailComponent {
-            id: detailComponent
+            spacing: 15
 
-            height: parent.height * 0.9
-            width: parent.width
+            DetailComponent {
+                id: detailComponent
 
-            modelData: root.model
-        }
+                height: parent.height * 0.9
+                width: parent.width
 
-        //TODO ajustar responsividade vertical
-        ButtonCustom {
-            id: returnButton
+                modelData: root.model
+            }
 
-            height: parent.height * 0.05
-            width: parent.width * 0.15
-            anchors.horizontalCenter: parent.horizontalCenter
-            src: "qrc:/resources/images/RETURN-ICON.png"
+            //TODO ajustar responsividade vertical
+            ButtonCustom {
+                id: returnButton
 
-            onClicked: {
-                root.finish()
+                height: parent.height * 0.05
+                width: parent.width * 0.15
+                anchors.horizontalCenter: parent.horizontalCenter
+                src: "qrc:/resources/images/RETURN-ICON.png"
+
+                onClicked: {
+                    root.finish()
+                }
             }
         }
     }

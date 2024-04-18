@@ -19,7 +19,7 @@ MouseArea {
         id: externalContainer
 
         anchors.fill: parent
-        color: "#e0dbff"
+        color: "#B50000"
 
         Row {
             id: internalContainer
@@ -73,9 +73,10 @@ MouseArea {
                         wrapMode: Text.WordWrap
                     }
 
+                    //TODO criar um retangulo em volta da avaliacao para ficar mais bonito
                     Text {
                         id: average
-                        text: root.average
+                        text: root.average > 0 ? root.average : "Não avaliado"
                         font.pixelSize: 15
                         anchors.right: parent.right
                         rightPadding: 10

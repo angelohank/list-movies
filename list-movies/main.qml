@@ -8,7 +8,7 @@ import "./screens"
 ApplicationWindow {
     id: root
 
-    width: 400
+    width: 600
     height: 600
     visible: true
     title: "List Movies"
